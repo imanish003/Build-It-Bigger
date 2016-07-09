@@ -17,18 +17,25 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    productFlavors {
+        free {
+            applicationId "optimist.mechanic.hnmn3.build_it_bigger.free"
+        }
+        paid {
+            applicationId "optimist.mechanic.hnmn3.build_it_bigger.paid"
+        }
+    }
 }
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-    // Added for AdMob
     compile project(':joke_android_library')
     compile project(':joke_java_library')
     compile project(path: ':backend', configuration: 'android-endpoints')
     compile 'com.android.support:appcompat-v7:24.0.0'
     compile 'com.google.android.gms:play-services:9.2.0'
-    compile 'com.google.android.gms:play-services-ads:9.2.0'
+    freeCompile 'com.google.android.gms:play-services-ads:9.2.0'
     compile 'com.google.android.gms:play-services-auth:9.2.0'
     compile 'com.google.android.gms:play-services-gcm:9.2.0'
 }
