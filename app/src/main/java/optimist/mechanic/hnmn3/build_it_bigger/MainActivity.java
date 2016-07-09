@@ -6,19 +6,29 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
-import com.example.JavaJokesClass;
+import java.util.List;
 
+import Utils.AsyncResponse;
+import Utils.AsyncTask_FetchJoke;
 import optimist.mechanic.hnmn3.joke_android_library.DisplayJokeActivity;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AsyncResponse {
+
+    List<String> jokesList = null;
+    Boolean dataLoaded = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        AsyncTask_FetchJoke asyncTask_fetchJoke = new AsyncTask_FetchJoke();
+        asyncTask_fetchJoke.delegate = this;
+        asyncTask_fetchJoke.execute(this);
     }
+
 
 
     @Override
@@ -43,13 +53,25 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void tellJoke(View view){
-        JavaJokesClass javaJokesClass = new JavaJokesClass();
-        String[] jokes = javaJokesClass.getJokes();
-        Intent intent = new Intent(this, DisplayJokeActivity.class);
-        intent.putExtra("jokes",jokes);
-        startActivity(intent);
+    public void tellJoke(View view) {
+        if(dataLoaded==false){
+            Toast.makeText(MainActivity.this, "Wait , jokes are still loading :(", Toast.LENGTH_SHORT).show();
+        }else {
+            /*JavaJokesClass javaJokesClass = new JavaJokesClass();
+            String[] jokes = javaJokesClass.getJokes();*/
+            Intent intent = new Intent(this, DisplayJokeActivity.class);
+            String[] jokes = new String[jokesList.size()];
+            jokes = jokesList.toArray(jokes);
+            intent.putExtra("jokes", jokes);
+            startActivity(intent);
+        }
     }
 
 
+    @Override
+    public void processFinish(List<String> output) {
+        jokesList =output;
+        Toast.makeText(MainActivity.this, "Jokes Loaded sucessfully", Toast.LENGTH_SHORT).show();
+        dataLoaded = true;
+    }
 }
