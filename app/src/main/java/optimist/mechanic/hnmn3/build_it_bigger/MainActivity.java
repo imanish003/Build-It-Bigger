@@ -73,6 +73,15 @@ public class MainActivity extends AppCompatActivity implements AsyncResponse {
         jokesList =output;
         Toast.makeText(MainActivity.this, "Jokes Loaded sucessfully", Toast.LENGTH_SHORT).show();
         dataLoaded = true;
+
+        JokeLoaderListener mCallBack;
+        mCallBack = (JokeLoaderListener)getSupportFragmentManager().findFragmentById(R.id.fragment);
+        mCallBack.JokeLoadedSucessfully();
+
+    }
+
+    public interface JokeLoaderListener{
+        public void JokeLoadedSucessfully();
     }
 }
 

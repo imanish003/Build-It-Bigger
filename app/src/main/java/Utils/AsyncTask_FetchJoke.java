@@ -7,6 +7,7 @@ import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import optimist.mechanic.hnmn3.build_it_bigger.backend.myApi.MyApi;
@@ -24,7 +25,6 @@ public class AsyncTask_FetchJoke extends AsyncTask<Context, List<String>, List<S
         if(myApiService == null) {  // Only do this once
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(), new AndroidJsonFactory(), null)
                     .setRootUrl("https://build-it-bigger-1366.appspot.com/_ah/api/");
-            // end options for devappserver
 
             myApiService = builder.build();
         }
@@ -37,13 +37,16 @@ public class AsyncTask_FetchJoke extends AsyncTask<Context, List<String>, List<S
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
+        List<String> list = new ArrayList<>();
+        list.add("Nothing fatched");
+        return list;
     }
 
     @Override
     protected void onPostExecute(List<String> result) {
         delegate.processFinish(result);
     }
+
 }
 
 

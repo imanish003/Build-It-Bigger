@@ -8,7 +8,7 @@ android {
         applicationId "optimist.mechanic.hnmn3.build_it_bigger"
         minSdkVersion 14
         targetSdkVersion 24
-        versionCode 1
+        versionCode 2
         versionName "1.0"
     }
     buildTypes {
@@ -27,16 +27,15 @@ android {
     }
 }
 
+
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
+    androidTestCompile "org.mockito:mockito-core:1.+"
     compile project(':joke_android_library')
     compile project(':joke_java_library')
     compile project(path: ':backend', configuration: 'android-endpoints')
-    compile 'com.google.android.gms:play-services-ads:9.2.0'
+    compile 'com.google.android.gms:play-services-ads:7.8.0'
     compile 'com.android.support:appcompat-v7:24.0.0'
-    compile 'com.google.android.gms:play-services:9.2.0'
-    compile 'com.google.android.gms:play-services-auth:9.2.0'
-    compile 'com.google.android.gms:play-services-gcm:9.2.0'
     compile 'com.android.support:support-v4:24.0.0'
 }
