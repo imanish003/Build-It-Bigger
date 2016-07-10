@@ -37,9 +37,7 @@ public class AsyncTask_FetchJoke extends AsyncTask<Context, List<String>, List<S
         } catch (IOException e) {
             e.printStackTrace();
         }
-        List<String> s = null;
-        s.add("No jokes available");
-        return s;
+        return null;
     }
 
     @Override
