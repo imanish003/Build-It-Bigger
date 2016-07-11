@@ -44,6 +44,7 @@ public class AsyncTask_FetchJoke extends AsyncTask<Context, List<String>, List<S
 
     @Override
     protected void onPostExecute(List<String> result) {
+        if(delegate!=null)
         delegate.processFinish(result);
     }
 

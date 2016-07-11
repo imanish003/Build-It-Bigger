@@ -31,13 +31,10 @@ public class MyAsyncTaskTest extends AndroidTestCase {
     public void testAsyncReturnType() {
 
         try {
-
-            //Default timeout for the GCM server is 20 seconds
-            //If the .get can't get the result in 10 seconds, something is wrong anyway
-            //Greater than 20 seconds results in an error string returned and requires further interpretation
             task.execute(mockContext);
             List<String> strings = task.get(10, TimeUnit.SECONDS);
             assertNotNull(strings);
+            assertEquals("Bahoot funny joke ", strings.get(0));
 
         } catch (Exception e) {
             fail("Timed out");
