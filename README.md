@@ -11,6 +11,7 @@ In this project, created an app with multiple flavors that uses multiple librari
 
 #### Why this Project?
 As Android projects grow in complexity, it becomes necessary to customize the behavior of the Gradle build tool, allowing automation of repetitive tasks. Particularly, factoring functionality into libraries and creating product flavors allow for much bigger projects with minimal added complexity.
+![alt tag](https://github.com/Gr8manish/Build-It-Bigger/blob/master/Screenshots/project_overview.png "Overview of project")
 
 #### What I Learned?
 
@@ -57,5 +58,5 @@ Display the ad after the user hits the button, and before the joke is shown.
 
 Add a loading indicator that is shown while the joke is being retrieved, and disappears when the joke is ready.
 
-
+![alt tag](https://github.com/Gr8manish/Build-It-Bigger/blob/master/Screenshots/BIB_one.png "Build-It-Bigger")![alt tag](https://github.com/Gr8manish/Build-It-Bigger/blob/master/Screenshots/BIB_two.png "Build-It-Bigger")![alt tag](https://github.com/Gr8manish/Build-It-Bigger/blob/master/Screenshots/BIB_three.png "Build-It-Bigger")![alt tag](https://github.com/Gr8manish/Build-It-Bigger/blob/master/Screenshots/BIB_four.png "Build-It-Bigger")
 
